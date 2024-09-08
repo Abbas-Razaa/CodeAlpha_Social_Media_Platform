@@ -1,16 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const storySchema = mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "user"
+    ref: "user",
   },
+
   story: String,
   date: {
     type: Date,
-    default: Date.now
-  }
-})
-
+    default: Date.now,
+  },
+});
 
 module.exports = mongoose.model("story", storySchema);

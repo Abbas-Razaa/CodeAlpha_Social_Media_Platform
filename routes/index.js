@@ -14,8 +14,6 @@ router.get("/", function (req, res) {
   res.render("index", { footer: false });
 });
 
-
-
 router.get("/login", function (req, res) {
   res.render("login", { footer: false });
 });
@@ -37,17 +35,17 @@ router.get("/feed", isLoggedIn, async function (req, res) {
     .findOne({ username: req.session.passport.user })
     .populate("posts");
 
-  let stories = await storyModel.find({ user: { $ne: user._id } })
-  .populate("user");
+  let stories = await storyModel
+    .find({ user: { $ne: user._id } })
+    .populate("user");
 
   var uniq = {};
-  var filtered = stories.filter(item => {
-    if(!uniq[item.user.id]){
+  var filtered = stories.filter((item) => {
+    if (!uniq[item.user.id]) {
       uniq[item.user.id] = " ";
       return true;
-    }
-    else return false;
-  })
+    } else return false;
+  });
 
   let posts = await postModel.find().populate("user");
 
