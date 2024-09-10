@@ -11,7 +11,7 @@
     <a href="/story">
       <div class="circle flex-shrink-0">
         <div
-          class="gradient w-[18vw] h-[18vw] bg-sky-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
+          class="gradient w-[18vw] h-[18vw] bg-red-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
         >
           <div class="inner w-[92%] h-[92%] rounded-full overflow-hidden">
             <img
@@ -24,10 +24,10 @@
       </div>
     </a>
     <% stories.forEach(function(story){ %>
-    <a href="/story/<%= story.id %>">
+    <a href="/story/<%= story._id %>">
       <div class="circle flex-shrink-0">
         <div
-          class="gradient w-[18vw] h-[18vw] bg-sky-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
+          class="gradient w-[18vw] h-[18vw] bg-red-100 rounded-full bg-gradient-to-r from-purple-700 to-orange-500 flex items-center justify-center"
         >
           <div class="inner w-[92%] h-[92%] rounded-full overflow-hidden">
             <img
@@ -55,7 +55,7 @@
         <h4 class="text-sm"><%= post.user.username %></h4>
         <h6 class="text-xs opacity-30"><%= dater(new Date(post.date)) %></h6>
       </div>
-      <div class="relative w-full h-96 mt-4 bg-sky-100 overflow-hidden">
+      <div class="relative w-full h-96 mt-4 bg-red-100 overflow-hidden">
         <img
           data-postid="<%= post.id %>"
           class="postimg w-full h-full object-cover"
@@ -77,7 +77,7 @@
           <i class="ri-chat-3-line"></i>
           <i class="ri-share-circle-line"></i>
         </div>
-        
+
         <% if(user.saved.indexOf(post.id)===-1){ %>
         <i data-postid="<%= post.id %>" class="save ri-bookmark-line"></i>
         <% } else { %>
