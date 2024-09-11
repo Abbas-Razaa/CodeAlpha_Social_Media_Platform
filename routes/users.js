@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const plm = require("passport-local-mongoose");
 
 mongoose.connect("mongodb://127.0.0.1:27017/SocialMedia");
@@ -10,39 +10,41 @@ const userSchema = mongoose.Schema({
   password: String,
   picture: {
     type: String,
-    default: "def.png"
+    default: "def.png",
   },
   contact: String,
   bio: String,
   stories: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "story"
-    }
+      ref: "story",
+    },
   ],
   saved: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "post"
-    }
+      ref: "post",
+    },
   ],
-  posts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "post"
-  }],
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "post",
+    },
+  ],
   followers: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user"
-    }
+      ref: "user",
+    },
   ],
   following: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "user"
-    }
-  ]
-})
+      ref: "user",
+    },
+  ],
+});
 
 userSchema.plugin(plm);
 
